@@ -1,6 +1,7 @@
 import streamlit as st
 import pandas as pd
 import plotly.express as px
+from pathlib import Path
 
 # python3 -m streamlit run "/Users/alishbahfarooq/Desktop/Chirality Research/fracfocus_case_study/3_dashboard.py"
 
@@ -9,13 +10,13 @@ st.set_page_config(page_title="FracFocus Insights", layout="wide")
 
 # importing df's for visualization
 
-disclosures_by_state_df = pd.read_csv('/Users/alishbahfarooq/Desktop/Chirality Research/fracfocus_case_study/disclosures_by_state.csv')
-common_chemicals_df = pd.read_csv('/Users/alishbahfarooq/Desktop/Chirality Research/fracfocus_case_study/common_chemicals_df.csv')
-water_consump_by_operator_df = pd.read_csv('/Users/alishbahfarooq/Desktop/Chirality Research/fracfocus_case_study/water_consump_by_operator_df.csv')
-top_operators_df = pd.read_csv('/Users/alishbahfarooq/Desktop/Chirality Research/fracfocus_case_study/top_operators_df.csv')
-water_consump_over_time_df = pd.read_csv('/Users/alishbahfarooq/Desktop/Chirality Research/fracfocus_case_study/water_consump_over_time_df.csv')
-operators_by_disclosures_df = pd.read_csv('/Users/alishbahfarooq/Desktop/Chirality Research/fracfocus_case_study/operators_by_disclosures_df.csv')
-jobs_per_year_df = pd.read_csv('/Users/alishbahfarooq/Desktop/Chirality Research/fracfocus_case_study/jobs_per_year_df.csv')
+disclosures_by_state_df = pd.read_csv(Path(__file__).parent / "disclosures_by_state.csv")
+common_chemicals_df = pd.read_csv(Path(__file__).parent / 'common_chemicals_df.csv')
+water_consump_by_operator_df = pd.read_csv(Path(__file__).parent / 'water_consump_by_operator_df.csv')
+top_operators_df = pd.read_csv(Path(__file__).parent / 'top_operators_df.csv')
+water_consump_over_time_df = pd.read_csv(Path(__file__).parent / 'water_consump_over_time_df.csv')
+operators_by_disclosures_df = pd.read_csv(Path(__file__).parent / 'operators_by_disclosures_df.csv')
+jobs_per_year_df = pd.read_csv(Path(__file__).parent / 'jobs_per_year_df.csv')
 
 st.title("FracFocus Insights")
 
