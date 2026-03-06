@@ -35,13 +35,14 @@ with h_col1:
     )
 
 with h_col2:
-    Year = st.selectbox(
+    Year_job = st.selectbox(
         'Select Year',
-        jobs_per_year_df['year'].unique()
+        jobs_per_year_df['year'].unique(),
+        key="job_select"
     )
 
-    filtered_year_df = jobs_per_year_df[jobs_per_year_df['year'] == Year]
-    st.metric("Total Number of Disclosures In " + str(Year), 
+    filtered_year_df = jobs_per_year_df[jobs_per_year_df['year'] == Year_job]
+    st.metric("Total Number of Disclosures In " + str(Year_job), 
               filtered_year_df['num_jobs'],
               border = True
     )
@@ -57,12 +58,12 @@ with h_col2:
 #            'avg_water_consum': "Average Water Consumption"},
 #    title='Average Water Consumption Over Time By Top 10 Operators'
 #)
-Year = st.selectbox(
+Year_water = st.selectbox(
         'Select Year',
-        sorted(water_consump_over_time_df['year'].unique())
+        sorted(water_consump_over_time_df['year'].unique()),
+        key='water_select'
     )
-
-filtered_water_consum_year_df = water_consump_over_time_df[water_consump_over_time_df['year'] == Year]
+filtered_water_consum_year_df = water_consump_over_time_df[water_consump_over_time_df['year'] == Year_water]
 
 fig_5 = px.scatter(
     water_consump_over_time_df,
@@ -72,7 +73,7 @@ fig_5 = px.scatter(
     labels={'OperatorName': 'Operator Name',
             'num_disclosures': 'Number of Disclosures',
             'avg_water_consum': "Average Water Consumption"},
-    title='Total Number of Disclosures VS Average Water Consumption in ' + str(Year)
+    title='Total Number of Disclosures VS Average Water Consumption in ' + str(Year_water)
 )
 fig_5.update_layout(title_x=0.2)
 st.plotly_chart(fig_5)
@@ -147,18 +148,19 @@ with col2:
     #st.plotly_chart(fig_4)
 
     # Operators With The Most Water Consumption In X Year
-    Year = st.selectbox(
+    Year_tree_map = st.selectbox(
         'Select Year',
-        sorted(water_consump_by_operator_df['year'].unique())
+        sorted(water_consump_by_operator_df['year'].unique()),
+        key='water_tree_select'
     )
-    filtered_water_year_df = water_consump_by_operator_df[water_consump_by_operator_df['year'] == Year]
+    filtered_water_year_df = water_consump_by_operator_df[water_consump_by_operator_df['year'] == Year_tree_map]
 
     fig_3 = px.treemap(
         filtered_water_year_df,
         names='OperatorName',
         values='total_water_consump',
         path=['OperatorName'],
-        title='Operators with the Most Water Consumption in ' + str(Year)
+        title='Operators with the Most Water Consumption in ' + str(Year_tree_map)
     )
     fig_3.update_layout(height=1000,title_x=0.25)
     st.plotly_chart(fig_3)
