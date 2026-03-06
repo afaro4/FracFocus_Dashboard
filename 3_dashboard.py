@@ -9,14 +9,14 @@ from pathlib import Path
 st.set_page_config(page_title="FracFocus Insights", layout="wide")
 
 # importing df's for visualization
-
-disclosures_by_state_df = pd.read_csv(Path(__file__).parent / "disclosures_by_state.csv")
-common_chemicals_df = pd.read_csv(Path(__file__).parent / 'common_chemicals_df.csv')
-water_consump_by_operator_df = pd.read_csv(Path(__file__).parent / 'water_consump_by_operator_df.csv')
-top_operators_df = pd.read_csv(Path(__file__).parent / 'top_operators_df.csv')
-water_consump_over_time_df = pd.read_csv(Path(__file__).parent / 'water_consump_over_time_df.csv')
-operators_by_disclosures_df = pd.read_csv(Path(__file__).parent / 'operators_by_disclosures_df.csv')
-jobs_per_year_df = pd.read_csv(Path(__file__).parent / 'jobs_per_year_df.csv')
+# Path(__file__).parent / 
+disclosures_by_state_df = pd.read_csv("disclosures_by_state.csv")
+common_chemicals_df = pd.read_csv('common_chemicals_df.csv')
+water_consump_by_operator_df = pd.read_csv('water_consump_by_operator_df.csv')
+top_operators_df = pd.read_csv('top_operators_df.csv')
+water_consump_over_time_df = pd.read_csv('water_consump_over_time_df.csv')
+operators_by_disclosures_df = pd.read_csv('operators_by_disclosures_df.csv')
+jobs_per_year_df = pd.read_csv('jobs_per_year_df.csv')
 
 st.title("FracFocus Insights")
 
